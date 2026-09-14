@@ -10,6 +10,7 @@ automation_bridge: "Odysseus (optional and capability-dependent)"
 repository: "https://github.com/KarstenEvans/aletheia-007-agent"
 repository_status: "active"
 resource_page: "https://swindon.org.uk/resources/aletheia-007-agent-rsc.htm"
+licence: "GPL-3.0-or-later"
 last_trust_check: "2026-09-14"
 ---
 
