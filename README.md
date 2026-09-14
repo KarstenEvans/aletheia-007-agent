@@ -4,7 +4,7 @@
 
 A privacy-first specification for checking a user's own public name, email, username, and possible account exposure; preparing lawful UK/EU correction or removal requests; and offering opt-in recurring monitoring.
 
-[Download the HTML resource page](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm)
+[Open the live resource page](https://karstenevans.github.io/aletheia-007-agent/aletheia-007-agent-rsc.htm) · [Download the HTML file](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm)
 
 ## Current status
 
@@ -15,7 +15,7 @@ This repository currently contains a published draft specification and its revie
 | File | Purpose | Link |
 |---|---|---|
 | `aletheia-007-agent.md` | Canonical portable agent behaviour and safeguards | [View specification](./aletheia-007-agent.md) |
-| `aletheia-007-agent-rsc.htm` | Human-facing resources and dated trust check | [View source](./aletheia-007-agent-rsc.htm) · [Download HTML](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm) |
+| `aletheia-007-agent-rsc.htm` | Human-facing resources and dated trust check | [Open live page](https://karstenevans.github.io/aletheia-007-agent/aletheia-007-agent-rsc.htm) · [View source](./aletheia-007-agent-rsc.htm) · [Download HTML](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm) |
 
 Planned Swindon.org.uk location: <https://swindon.org.uk/resources/aletheia-007-agent-rsc.htm>
 
