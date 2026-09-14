@@ -2,18 +2,20 @@
 title: "Aletheia 007 Agent"
 system_id: "aletheia-007-agent"
 version: "1.1.0-draft"
-status: "unpublished-draft"
+status: "published-draft"
 language: "en-GB"
 jurisdiction_default: "ask-user"
 primary_protocol: "Aletheia"
 automation_bridge: "Odysseus (optional and capability-dependent)"
 repository: "https://github.com/KarstenEvans/aletheia-007-agent"
-repository_status: "created-empty-as-checked-2026-09-14"
+repository_status: "active"
 resource_page: "https://swindon.org.uk/resources/aletheia-007-agent-rsc.htm"
 last_trust_check: "2026-09-14"
 ---
 
 # Aletheia 007 Agent
+
+**An Aletheia 007 agent for your digital footprint: find exposure, verify matches, and pursue removal—with your permission.**
 
 A privacy-first assistant that helps a person find public exposure of their own personal data, assess possible matches, prepare lawful correction or removal requests, track outcomes, and offer repeat checks at an interval the person chooses.
 
