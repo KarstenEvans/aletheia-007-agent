@@ -179,7 +179,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 10000);
   }
   function exportData() { return { format: 'aletheia-007-session-v1', exportedAt: iso(), username: state.username, findings: state.findings, cases: state.cases }; }
-  function csvEscape(s) { const v = String(s == null ? '' : s); return '"' + v.replace(/"/g, '""') + '"'; }
+  function csvEscape(s) { let v = String(s == null ? '' : s); if (/^[=+\-@\t\r]/.test(v)) v = "'" + v; return '"' + v.replace(/"/g, '""') + '"'; }
   function toCsv() {
     const cols = ['source', 'type', 'note', 'upstream', 'matching', 'confirmed', 'status', 'outcome', 'createdAt', 'lastChecked', 'deadline', 'receipt'];
     return [cols.join(',')].concat(state.cases.map(c => cols.map(k => csvEscape(c[k])).join(','))).join('\r\n');
@@ -349,6 +349,28 @@
     try { await importEncrypted(e.target.files[0]); } catch (err) { show('scan-message', 'Import failed: wrong passphrase or invalid file. ' + err.message, true); }
     e.target.value = '';
   });
+  async function renderRoutes() {
+    const holder = $('broker-routes');
+    if (!holder) return;
+    holder.textContent = 'Loading dated official routes…';
+    try {
+      const r = await fetch('./removal-routes.json', { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+      if (!data || data.schema !== 'aletheia007-privacy-routes-v1' || !Array.isArray(data.routes)) throw new Error('Invalid route catalogue');
+      const valid = data.routes.filter(x => x && safeUrl(x.url) && safeUrl(x.source));
+      if (!valid.length) throw new Error('No valid links');
+      holder.innerHTML = valid.map(x =>
+        '<div class="route-card"><h3>' + esc(x.provider) + '</h3>' +
+        '<p>' + esc(x.kind) + '</p>' +
+        '<a href="' + esc(safeUrl(x.url)) + '" target="_blank" rel="noopener noreferrer">Official route ↗</a>' +
+        '<p class="fineprint">' + esc(x.detail) + '</p>' +
+        '<p class="meta">Checked: ' + esc(x.checked_at) + ' · ' + esc(x.verification) + ' · <a href="' + esc(safeUrl(x.source)) + '" target="_blank" rel="noopener noreferrer">Evidence</a></p></div>'
+      ).join('');
+    } catch (e) {
+      holder.textContent = 'The route catalogue could not be loaded. Use the regulator and Google reference links above, or the AI handoff to research a provider.';
+    }
+  }
   $('clear').addEventListener('click', () => {
     if (!confirm('Clear all username results, requests and cases in this browser tab?')) return;
     state.cases = []; state.findings = []; state.username = ''; state.lastRun = '';
@@ -356,5 +378,5 @@
     renderCases(); renderFindings(); platformLeads(''); refreshPrompt();
     show('scan-message', 'Tab data cleared. Any previously exported downloads must be deleted separately.');
   });
-  renderCases(); renderFindings(); platformLeads(''); refreshPrompt();
+  renderCases(); renderFindings(); platformLeads(''); refreshPrompt(); renderRoutes();
 })();
