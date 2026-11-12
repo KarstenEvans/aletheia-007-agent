@@ -17,6 +17,7 @@ The test handle `KarstenEvans` is a real public GitHub username, not invented da
 | File | Purpose | Link |
 |---|---|---|
 | `index.html` + `styles.css` + `app.js` | Runnable public-facing browser dashboard | [Open app](https://karstenevans.github.io/aletheia-007-agent/) |
+| `removal-routes.json` | Dated official provider removal and opt-out route catalogue | [View catalogue](./removal-routes.json) |
 | `aletheia-007-agent.md` | Canonical portable agent behaviour and safeguards | [View specification](./aletheia-007-agent.md) |
 | `aletheia-007-agent-rsc.htm` | Human-facing resources and dated trust check | [Open live page](https://karstenevans.github.io/aletheia-007-agent/aletheia-007-agent-rsc.htm) · [View source](./aletheia-007-agent-rsc.htm) · [Download HTML](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm) |
 
