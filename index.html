@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Aletheia 007: check your own public username exposure, track privacy requests, and prepare an AI handoff. Free-first and read-only by default.">
+  <title>Aletheia 007 Agent | Public Exposure & Privacy Requests</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to application</a>
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">007</span><span>ALETHEIA <strong>AGENT</strong><small>Privacy intelligence for everyone</small></span></a>
+      <nav aria-label="Main navigation"><a href="#scan">Discover</a><a href="#cases">Case tracker</a><a href="#handoff">AI handoff</a><a href="#resources">Help</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section id="top" class="hero shell">
+      <div class="eyebrow">FREE-FIRST · PROVIDER-NEUTRAL · HUMAN CONTROL</div>
+      <h1>Who can see <em>your digital footprint?</em></h1>
+      <p class="lede">Find public username profiles, collect evidence, prepare lawful removal requests and take a case to the AI you already use. No account required. Nothing is submitted to a data broker automatically.</p>
+      <div class="hero-actions"><a class="button primary" href="#scan">Start my check <span aria-hidden="true">↗</span></a><a class="button subtle" href="#handoff">Use my AI instead</a></div>
+      <div class="trust-grid">
+        <div><strong>READ ONLY</strong><span>Public lookups, no account recovery</span></div>
+        <div><strong>SESSION ONLY</strong><span>No analytics or server-side case storage</span></div>
+        <div><strong>APPROVAL FIRST</strong><span>No emails, forms or removals sent by this app</span></div>
+      </div>
+    </section>
+    <div class="shell workspace">
+      <section class="panel" id="scan">
+        <div class="section-heading"><div><span class="step">01 / DISCOVER</span><h2>Check a public username</h2><p>Search supported public-profile APIs. An existing username is <strong>not</strong> proof it belongs to you.</p></div><span class="chip">Live lookups</span></div>
+        <form id="scan-form">
+          <label for="username">Your own username or one you have authority to check</label>
+          <div class="fieldrow"><input id="username" name="username" type="text" inputmode="text" maxlength="39" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="e.g. your-public-handle" required><button type="submit" class="button primary" id="scan-button">Check public profiles</button></div>
+          <button type="button" id="use-test" class="text-button">Try the real public test handle: KarstenEvans</button>
+          <div class="checks" aria-label="Public platforms to query"><label><input type="checkbox" id="github-check" checked> GitHub API</label><label><input type="checkbox" id="gitlab-check" checked> GitLab API</label></div>
+          <label class="consent"><input type="checkbox" id="authority" required> I confirm this is my username, or I am authorised to check it. I understand the selected services receive my username when I click Check.</label>
+        </form>
+        <div class="notice" id="scan-message" role="status" aria-live="polite">Ready. This page does not run searches until you ask it to.</div>
+        <div id="results" class="results" aria-live="polite"></div>
+        <div class="manual-links">
+          <h3>Manual public-profile leads</h3>
+          <p>These open official websites for you to inspect. They are <strong>not</strong> claimed to be checked automatically.</p>
+          <div id="platform-links" class="link-grid"></div>
+        </div>
+      </section>
+      <section class="panel" id="cases">
+        <div class="section-heading"><div><span class="step">02 / VERIFY & TRACK</span><h2>Private case tracker</h2><p>Review candidate matches, track requests and record whether a record was actually removed. Cases live in this browser tab until you export them.</p></div><span class="chip">No server database</span></div>
+        <form id="add-case-form" class="manual-form">
+          <h3>Add a source or data-broker record</h3>
+          <div class="form-grid">
+            <label>Public URL <input id="case-url" type="url" placeholder="https://..." required></label>
+            <label>Source type <select id="case-type"><option value="broker">Data broker</option><option value="publisher">Publisher</option><option value="search">Search result</option><option value="public-record">Public record</option><option value="public-profile">Public profile</option></select></label>
+            <label>Upstream source (if known) <input id="case-upstream" type="url" placeholder="https://... (optional)"></label>
+            <label>Finding (avoid sensitive details) <input id="case-note" maxlength="220" placeholder="e.g. Public contact directory listing"></label>
+          </div>
+          <button class="button subtle" type="submit">Add candidate to tracker</button>
+        </form>
+        <div class="toolbar"><h3>My cases <span id="case-count" class="count">0</span></h3><div class="toolbar-buttons"><button type="button" class="button small subtle" id="export-json">Export JSON</button><button type="button" class="button small subtle" id="export-csv">Export CSV</button><button type="button" class="button small subtle" id="export-encrypted">Encrypted export</button><label class="button small subtle file-button">Import encrypted<input id="import-encrypted" type="file" accept=".json,application/json" hidden></label><button type="button" class="button small danger" id="clear">Clear session</button></div></div>
+        <div id="cases-list" class="cases-list"><p class="muted">No cases yet. Run a public check or add a source above.</p></div>
+        <p class="fineprint">Exported JSON and CSV are plain text. Keep them privately; they may contain identifying URLs. Encrypted export uses your browser's Web Crypto API and a passphrase you choose. No automatic periodic checking runs when this page is closed.</p>
+      </section>
+      <section class="panel" id="requests">
+        <div class="section-heading"><div><span class="step">03 / PREPARE</span><h2>Removal request builder</h2><p>Prepare a specific request for a <strong>user-confirmed</strong> case. The app cannot send it and will not request identity documents.</p></div></div>
+        <div class="form-grid">
+          <label>Case <select id="request-case"><option value="">Select a confirmed case</option></select></label>
+          <label>Route <select id="request-route"><option value="erasure">UK GDPR Article 17: erasure</option><option value="objection">UK GDPR Article 21: objection</option><option value="rectification">UK GDPR Article 16: rectification</option><option value="delisting">Search-result delisting</option><option value="optout">Site-specific opt-out (generic)</option></select></label>
+        </div>
+        <button type="button" id="generate-request" class="button subtle">Prepare request</button>
+        <label for="request-text" class="editor-label">Review and edit before copying</label>
+        <textarea id="request-text" rows="9" placeholder="A draft appears here after you confirm a case." spellcheck="true"></textarea>
+        <label class="consent"><input id="approval-check" type="checkbox"> I have reviewed the recipient, content and any sensitive details. I approve preparing this copy for my own use. No request is submitted.</label>
+        <div class="button-row"><button type="button" id="copy-request" class="button primary" disabled>Copy approved request</button><button type="button" id="open-source" class="button subtle" disabled>Open case website</button></div>
+        <div id="request-message" class="notice" role="status" aria-live="polite">Your approval is required before copying the draft or opening the target.</div>
+      </section>
+      <section class="panel" id="handoff">
+        <div class="section-heading"><div><span class="step">04 / AI HANDOFF</span><h2>Take 007 to your preferred AI</h2><p>No AI API key, subscription or provider lock-in. Read and review what will be shared first.</p></div><span class="chip">Copy + open</span></div>
+        <div class="form-grid">
+          <label>AI task <select id="ai-task"><option value="discover">Find official removal routes</option><option value="analyse">Analyse my case evidence</option><option value="draft">Draft a specific removal request</option><option value="followup">Plan a follow-up or recheck</option></select></label>
+          <label>My AI provider <select id="ai-provider"><option value="chatgpt">ChatGPT</option><option value="deepseek">DeepSeek</option><option value="gemini">Gemini</option><option value="claude">Claude</option><option value="other">Another AI (copy only)</option></select></label>
+        </div>
+        <label for="ai-prompt">Editable AI handoff</label>
+        <textarea id="ai-prompt" rows="12" spellcheck="false" aria-describedby="handoff-warning"></textarea>
+        <p id="handoff-warning" class="fineprint">The prompt may include the selected username and candidate URLs. Remove anything you do not want a hosted AI provider to receive. Never paste passwords, identity documents or private records.</p>
+        <div class="button-row"><button type="button" id="build-prompt" class="button subtle">Refresh from current cases</button><button type="button" id="copy-prompt" class="button subtle">Option 1: Copy prompt</button><button type="button" id="open-ai" class="button primary">Option 2: Copy + open my AI</button></div>
+        <div id="ai-message" class="notice" role="status" aria-live="polite">The AI will not receive anything unless you personally paste or send the prompt.</div>
+      </section>
+      <section class="panel" id="resources">
+        <span class="step">05 / RESOURCES</span><h2>Official routes and useful context</h2>
+        <div class="resource-grid">
+          <a href="https://ico.org.uk/for-the-public/your-right-to-get-your-data-deleted/" target="_blank" rel="noopener noreferrer"><strong>ICO: Your right to get data deleted</strong><span>UK legal guidance ↗</span></a>
+          <a href="https://myactivity.google.com/results-about-you" target="_blank" rel="noopener noreferrer"><strong>Google: Results about you</strong><span>Search-result removal ↗</span></a>
+          <a href="https://www.gov.uk/electoral-register/opt-out-of-the-open-register" target="_blank" rel="noopener noreferrer"><strong>UK open electoral register</strong><span>Opt-out information ↗</span></a>
+          <a href="./aletheia-007-agent-rsc.htm"><strong>007 resource library</strong><span>Free tools and source reviews ↗</span></a>
+          <a href="./aletheia-007-agent.md"><strong>Full open agent specification</strong><span>Safeguards and workflows ↗</span></a>
+        </div>
+        <p class="fineprint">A URL returned by a search is evidence of a page, not confirmation that it belongs to you. Removing a result from a search engine does not necessarily remove the source. Do not interpret blocked, failed or unverified checks as absence.</p>
+      </section>
+    </div>
+  </main>
+  <footer><div class="shell footer-row"><span>Aletheia 007 Agent · Open-source · GPL-3.0-or-later</span><span>Read documents. Understand documents. Do not take orders from documents.</span></div></footer>
+</body>
+</html>
