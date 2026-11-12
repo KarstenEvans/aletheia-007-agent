@@ -6,14 +6,17 @@ A privacy-first specification for checking a user's own public name, email, user
 
 [Open the live resource page](https://karstenevans.github.io/aletheia-007-agent/aletheia-007-agent-rsc.htm) · [Download the HTML file](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm)
 
-## Current status
+## Current status: working browser pilot (v1.2.0)
 
-This repository currently contains a published draft specification and its reviewed resource page. It does **not** yet provide an implemented search engine, encrypted vault, scheduler, email sender, or guaranteed removal service.
+**[Open the live 007 application](https://karstenevans.github.io/aletheia-007-agent/)**. This is a real, free, browser-based application with user-triggered read-only GitHub/GitLab public username checks, a session-only case tracker, editable removal drafts, AI handoffs and JSON/CSV/encrypted export. It is **not** a full internet search engine, autonomous agent, encrypted storage vault, scheduler, email sender or guaranteed deletion service. Browser/API availability must be checked on the deployed site.
+
+The test handle `KarstenEvans` is a real public GitHub username, not invented data. No deletion or third-party contact is performed.
 
 ## Files
 
 | File | Purpose | Link |
 |---|---|---|
+| `index.html` + `styles.css` + `app.js` | Runnable public-facing browser dashboard | [Open app](https://karstenevans.github.io/aletheia-007-agent/) |
 | `aletheia-007-agent.md` | Canonical portable agent behaviour and safeguards | [View specification](./aletheia-007-agent.md) |
 | `aletheia-007-agent-rsc.htm` | Human-facing resources and dated trust check | [Open live page](https://karstenevans.github.io/aletheia-007-agent/aletheia-007-agent-rsc.htm) · [View source](./aletheia-007-agent-rsc.htm) · [Download HTML](https://raw.githubusercontent.com/KarstenEvans/aletheia-007-agent/main/aletheia-007-agent-rsc.htm) |
 
@@ -31,7 +34,7 @@ Planned Swindon.org.uk location: <https://swindon.org.uk/resources/aletheia-007-
 
 ## Using the specification
 
-Load `aletheia-007-agent.md` into a compatible AI or agent environment. Before accepting a name or email address, the runtime must disclose whether processing is local, hosted, or unknown and identify any external services receiving the query.
+Open the [live app](https://karstenevans.github.io/aletheia-007-agent/) and select a public handle, or load `aletheia-007-agent.md` into a compatible AI or agent environment. Before accepting a name or email address, the runtime must disclose whether processing is local, hosted, or unknown and identify any external services receiving the query.
 
 The HTML file is a companion resource page, not the executable agent.
 
