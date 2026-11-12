@@ -354,7 +354,7 @@ request_channel: "self-service | email | form | regulator | unknown"
 automation_supported: false
 ```
 
-Do not assert that an opt-out link is valid until actually checked. Avoid link lists copied from unverified blogs. The first pilot relies on official reference routes and an AI research handoff, **not** an exhaustively verified broker registry.
+Do not assert that an opt-out link is valid until actually checked. Avoid link lists copied from unverified blogs. The pilot includes a small, dated, non-exhaustive public catalogue in `removal-routes.json`, plus official reference routes and an AI research handoff. It must never present this catalogue as evidence that a provider holds any record about the user.
 
 ### 19.3 Browser adapters and the approval contract
 
