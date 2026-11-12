@@ -1,0 +1,73 @@
+{
+  "schema": "aletheia007-privacy-routes-v1",
+  "checked_at": "2026-11-12",
+  "note": "Official routes; presence on a provider has NOT been checked. Users must verify each site's current process before supplying personal information.",
+  "routes": [
+    {
+      "id": "apollo",
+      "provider": "Apollo.io",
+      "source_host": "apollo.io",
+      "url": "https://www.apollo.io/company/privacy-center",
+      "kind": "Individual profile deletion / objection",
+      "verification": "Official Apollo privacy centre",
+      "source": "https://www.apollo.io/privacy-policy",
+      "checked_at": "2026-11-12",
+      "detail": "A suppression entry may remain to prevent re-listing."
+    },
+    {
+      "id": "spokeo",
+      "provider": "Spokeo",
+      "source_host": "spokeo.com",
+      "url": "https://www.spokeo.com/optout",
+      "kind": "People-search opt-out",
+      "verification": "California Attorney General broker-registration disclosure",
+      "source": "https://oag.ca.gov/node/186310",
+      "checked_at": "2026-11-12",
+      "detail": "US-specific process; may require listing URL and verification."
+    },
+    {
+      "id": "zoominfo",
+      "provider": "ZoomInfo",
+      "source_host": "zoominfo.com",
+      "url": "https://www.zoominfo.com/trust-center/your-privacy",
+      "kind": "Individual professional-profile removal",
+      "verification": "ZoomInfo published policy / Trust Centre",
+      "source": "https://www.zoominfo.com/trust-center/your-privacy",
+      "checked_at": "2026-11-12",
+      "detail": "Removal of personal profiles differs from business-profile handling."
+    },
+    {
+      "id": "rocketreach",
+      "provider": "RocketReach",
+      "source_host": "rocketreach.co",
+      "url": "https://rocketreach.co/remove-profile",
+      "kind": "Professional-profile opt-out",
+      "verification": "Official removal endpoint corroborated by 31 October 2026 review",
+      "source": "https://databrokerfiles.com/rocketreach-opt-out",
+      "checked_at": "2026-11-12",
+      "detail": "May require access to the email associated with the profile."
+    },
+    {
+      "id": "google-results",
+      "provider": "Google Search",
+      "source_host": "google.com",
+      "url": "https://myactivity.google.com/results-about-you",
+      "kind": "Eligible search-result removal",
+      "verification": "Official Google help documentation",
+      "source": "https://support.google.com/websearch/answer/12719076",
+      "checked_at": "2026-11-12",
+      "detail": "Search delisting does not delete the original page."
+    },
+    {
+      "id": "ico",
+      "provider": "UK Information Commissioner's Office",
+      "source_host": "ico.org.uk",
+      "url": "https://ico.org.uk/for-the-public/your-right-to-get-your-data-deleted/",
+      "kind": "UK right-to-erasure guidance",
+      "verification": "Official UK regulator",
+      "source": "https://ico.org.uk/for-the-public/your-right-to-get-your-data-deleted/",
+      "checked_at": "2026-11-12",
+      "detail": "Legal entitlement depends on circumstances, exceptions and jurisdiction."
+    }
+  ]
+}
